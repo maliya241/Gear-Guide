@@ -9,7 +9,4 @@ document.getElementById("nav").innerHTML = `<a href="index.html">Home</a>
 			</div>
 			<a href="education.html">Education</a>`;
 			
-document.getElementById("scripts").innerHTML = `<script src="js/data_functions.js"></script>
-		<script src="js/data/helmets.js"></script>
-		<script src="js/data/monocular_night_vision.js"></script>
-		<script src="js/main.js"></script>`;
+document.getElementById("footer").innerHTML = ``;

@@ -1,17 +1,26 @@
-const items_array = [];
+const items_array = []; //each element contains an array for an item
 
+/**************
+populate_items_list function creates html list item in its corresponding unordered list for all items in data js files.
+Executes in main.js as a part of page set-up.
+**************/
 function populate_items_list() {
 	var id_of_ul_on_page = document.getElementById("all_items").getElementsByTagName("ul");
-	for (i = 0; i < items_array.length; i++) { // iterates through items
-		for (k = 0; k < id_of_ul_on_page.length; k++) { // iterates through ul 
+	for (k = 0; k < id_of_ul_on_page.length; k++) { // iterates through unordered lists 
+		for (i = 0; i < items_array.length; i++) { // iterates through items
 			if (id_of_ul_on_page[k].id.indexOf(items_array[i].item_category) > -1) { //searches for item cetegory in ul ids
 				// Add a new html li to its corresponding ul 
-				document.getElementById(id_of_ul_on_page[k].id).innerHTML += '<li><picture><img src="'+items_array[i].picture_href+'" alt="'+items_array[i].item_title+'"></picture><a href="'+items_array[i].href+'">'+items_array[i].item_title+'<p class="tags">all '+items_array[i].tags+'</p></a></li>';
+				document.getElementById(id_of_ul_on_page[k].id).innerHTML += '<li class="'+items_array[i].item_category+'"><picture><img src="'+items_array[i].picture_href+'" alt="'+items_array[i].item_title+'"></picture><a href="'+items_array[i].href+'">'+items_array[i].item_title+'<p class="tags"> all '+items_array[i].tags+'</p></a></li>';
 			}
 		}
 	}
+
 }
 
+/**************
+sort_items_in_list function sorts items in each list alphabetically by item title.
+Executes in main.js as a part of page set-up.
+**************/
 function sort_items_in_list() {
 	var list, i, k, switching, ul, li, shouldSwitch;
 	list = document.getElementById("all_items");
@@ -19,7 +28,7 @@ function sort_items_in_list() {
 	
 	ul = list.getElementsByTagName("ul");
 	// Loop through all unordered lists:
-	for (i = 0; i < (ul.length - 1); i++) {
+	for (i = 0; i < (ul.length); i++) {
 		li = ul[i].getElementsByTagName("li");
 		/* Make a loop that will continue until no switching has been done: */
 		while (switching) {
@@ -46,6 +55,10 @@ function sort_items_in_list() {
 	}
 }
 
+/**************
+search_items function searchs all items on page and hides all items that do not have the search term in its <a> tag contents. It does not account for misspellings.
+Executes on key up in search bar.
+**************/
 function search_items() {
 	// Declare variables
 	var input, filter, div, li, a, i, txtValue, tag;
@@ -60,30 +73,35 @@ function search_items() {
 		txtValue = a.textContent || a.innerText;
 		if (txtValue.toUpperCase().indexOf(filter) > -1) {
 			li[i].style.display = "";
+			li[i].parentNode.previousElementSibling.style.display = ""; //changes display value for the corresponding ul label
 		} else {
 			li[i].style.display = "none";
+			li[i].parentNode.previousElementSibling.style.display = "none"; //changes display value for the corresponding ul label
 		}
 	}
 }
 
-function filter_selection(filter_a) {
+/**************
+filter_selection function filters items that have the given keyword in its <a> tag when a filter button is selected.
+filter_keyword parameter: takes a string argument, something found in the contents of the <a> tag.
+Executes when a filter button is clicked
+**************/
+function filter_selection(filter_keyword) {
 	var input, div, li, i;
 	input = document.getElementById('search_input');
-	input.value = "";
+	input.value = ""; //clears search bar
 	div = document.getElementById("all_items");
 	li = div.getElementsByTagName('li');
-	
-	if (filter_a == "all") {
-		c = "";
-	}
 		
 	for (i = 0; i < li.length; i++) {
 		a = li[i].getElementsByTagName("a")[0];
 		txtValue = a.textContent || a.innerText;
-		if (txtValue.indexOf(filter_a) > -1) {
+		if (txtValue.indexOf(filter_keyword) > -1) {
 			li[i].style.display = "";
+			li[i].parentNode.previousElementSibling.style.display = ""; //changes display value for the corresponding ul label
 		} else {
 			li[i].style.display = "none";
+			li[i].parentNode.previousElementSibling.style.display = "none";	//changes display value for the corresponding ul label
 		}
 	}
 }
