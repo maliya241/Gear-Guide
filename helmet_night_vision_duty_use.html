@@ -24,18 +24,33 @@
 			<button class="btn active" onclick="filter_selection('all')"> Show All</button>
 			<button class="btn" onclick="filter_selection('monocular')"> Monocular</button>
 			<button class="btn" onclick="filter_selection('binocular')"> Binocular</button>
+			<button class="btn" onclick="filter_selection('night vision mounting')"> Mounting</button>
+			<button class="btn" onclick="filter_selection('night vision thermal')"> Thermal</button>
+			<button class="btn" onclick="filter_selection('night vision active aiming')"> Active Aiming</button>
 		</div>
 		
 		<div id="all_items">
 			<p id="monocular_night_vision_id">Monocular Night Vision</p>
 			<ul id="monocular_night_vision" aria-labelledby="monocular_night_vision_id"></ul>
+			
 			<p id="binocular_night_vision_id">Binocular Night Vision</p>
 			<ul id="binocular_night_vision" aria-labelledby="binocular_night_vision_id"></ul>
+			
+			<p id="mounting_night_vision_id">Night Vision Mounting</p>
+			<ul id="mounting_night_vision" aria-labelledby="mounting_night_vision_id"></ul>
+			
+			<p id="thermal_night_vision_id">Thermal Devices</p>
+			<ul id="thermal_night_vision" aria-labelledby="thermal_night_vision_id"></ul>
 		</div>
 		
 		<footer id="footer">
 		</footer>
-		<script src="js/nav_and_footer.js"></script>
-		<script src="js/main.js"></script>
+		<div id="scripts">
+			<script src="js/nav_and_footer.js"></script>
+			<script src="js/data_functions.js"></script>
+			<script src="js/data/helmets.js"></script>
+			<script src="js/data/monocular_night_vision.js"></script>
+			<script src="js/main.js"></script>
+		</div>
 	</body>				
 </html>
