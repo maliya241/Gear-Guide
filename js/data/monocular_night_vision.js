@@ -1,12 +1,12 @@
 /**************	
-To add more items, copy following code and enter relevant information in between ''.
+To add more items, copy code below and enter relevant information in between ''.
 
 items_array[items_array.length] = {
-	item_category:'',
+	item_category:'monocular_night_vision',
 	item_title:'',
 	href:'', 
 	picture_href:'',
-	tags:''
+	tags:'helmet accessory nightvision night vision monocular '
 };
 
 **************/
