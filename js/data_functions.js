@@ -10,7 +10,16 @@ function populate_items_list() {
 		for (i = 0; i < items_array.length; i++) { // iterates through items
 			if (id_of_ul_on_page[k].id.indexOf(items_array[i].item_category) > -1) { //searches for item cetegory in ul ids
 				// Add a new html li to its corresponding ul 
-				document.getElementById(id_of_ul_on_page[k].id).innerHTML += '<li class="'+items_array[i].item_category+'"><picture><img src="'+items_array[i].picture_href+'" alt="'+items_array[i].item_title+'"></picture><a href="'+items_array[i].href+'">'+items_array[i].item_title+'<p class="tags"> all '+items_array[i].tags+'</p></a></li>';
+				document.getElementById(id_of_ul_on_page[k].id).innerHTML += `<li><figure>
+					<picture>
+						<img src="`+items_array[i].picture_href+`" alt="`+items_array[i].item_title+`">
+					</picture>
+					<figcaption><a href="`+items_array[i].href+`">`+items_array[i].item_title+`
+						<p class="tags"> all `+items_array[i].tags+`</p>
+					</a><figcaption>
+				</figure></li>`;
+			} else {
+				document.getElementById(id_of_ul_on_page[k].id).previousElementSibling.style.display = "none";	//changes display value for the corresponding ul label
 			}
 		}
 	}
@@ -56,34 +65,37 @@ function sort_items_in_list() {
 }
 
 /**************
-search_items function searchs all items on page and hides all items that do not have the search term in its <a> tag contents. It does not account for misspellings.
+search_items function searchs all items on page and hides all items that do not have the search term in its <a> tag contents. It does not account for misspellings or variations of keyword order.
 Executes on key up in search bar.
 **************/
 function search_items() {
 	// Declare variables
-	var input, filter, div, li, a, i, txtValue, tag;
+	var input, filter, div, li, a, i, txtValue, tag, ul_title_display;
 	input = document.getElementById('search_input');
 	filter = input.value.toUpperCase();
 	div = document.getElementById("all_items");
 	li = div.getElementsByTagName("li");
-
+	ul_title_display = false; //start with hiding ul title
 	// Loop through all list items, and hide those who don't match the search query
 	for (i = 0; i < li.length; i++) {
 		a = li[i].getElementsByTagName("a")[0];
 		txtValue = a.textContent || a.innerText;
 		if (txtValue.toUpperCase().indexOf(filter) > -1) {
 			li[i].style.display = "";
+			ul_title_display = true;
 			li[i].parentNode.previousElementSibling.style.display = ""; //changes display value for the corresponding ul label
 		} else {
 			li[i].style.display = "none";
-			li[i].parentNode.previousElementSibling.style.display = "none"; //changes display value for the corresponding ul label
+			if (!ul_title_display) { //only hide title if there are no items in ul
+				li[i].parentNode.previousElementSibling.style.display = "none"; //changes display value for the corresponding ul label
+			}
 		}
 	}
 }
 
 /**************
 filter_selection function filters items that have the given keyword in its <a> tag when a filter button is selected.
-filter_keyword parameter: takes a string argument, something found in the contents of the <a> tag.
+filter_keyword parameter: takes a string argument, needs to be a word or phrase found in the contents of the <a> tag.
 Executes when a filter button is clicked
 **************/
 function filter_selection(filter_keyword) {
