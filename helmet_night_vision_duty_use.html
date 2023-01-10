@@ -13,20 +13,20 @@
 		<nav id="nav">
 		</nav>
 		
-		<h1>Helmet Night Vision for Professional Use</h1>
+		<h1>Helmet Night Vision for Duty Use</h1>
 		<p id="page_breadcrumb"><a href="index.html">Home</a> &GT; <a href="duty_use.html">Duty Use</a> &GT; <a href="helmets_duty_use.html">Helmets for Duty Use</a> &GT; Helmet Night Vision for Duty Use</p>
 		
 		<form name="search">
 			<label id="search_label" for="search_input">Search</label>
 			<input type="text" id="search_input" onkeyup="search_items()" placeholder="Search">
 		</form>
-		<div id="button_filter">
-			<button class="btn active" onclick="filter_selection('all')"> Show All</button>
-			<button class="btn" onclick="filter_selection('monocular')"> Monocular</button>
-			<button class="btn" onclick="filter_selection('binocular')"> Binocular</button>
-			<button class="btn" onclick="filter_selection('night vision mounting')"> Mounting</button>
-			<button class="btn" onclick="filter_selection('night vision thermal')"> Thermal</button>
-			<button class="btn" onclick="filter_selection('night vision active aiming')"> Active Aiming</button>
+		<div id="filter_buttons">
+			<button type="button" class="filter_button active" onclick="filter_selection('all')"> Show All</button>
+			<button type="button" class="filter_button" onclick="filter_selection('monocular')"> Monocular</button>
+			<button type="button" class="filter_button" onclick="filter_selection('binocular')"> Binocular</button>
+			<button type="button" class="filter_button" onclick="filter_selection('night vision mounting')"> Mounting</button>
+			<button type="button" class="filter_button" onclick="filter_selection('night vision thermal')"> Thermal</button>
+			<button type="button" class="filter_button" onclick="filter_selection('night vision active aiming')"> Active Aiming</button>
 		</div>
 		
 		<div id="all_items">

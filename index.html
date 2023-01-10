@@ -18,10 +18,10 @@
 			<label id="search_label" for="search_input">Search</label>
 			<input type="text" id="search_input" onkeyup="search_items()" placeholder="Search">
 		</form>
-		<div id="button_filter">
-			<button class="btn active" onclick="filter_selection('all')"> Show All</button>
-			<button class="btn" onclick="filter_selection('helmets')"> Helmet</button>
-			<button class="btn" onclick="filter_selection('nightvision')"> Night Vision</button>
+		<div id="filter_buttons">
+			<button type="button" class="filter_button active" onclick="filter_selection('all')"> Show All</button>
+			<button type="button" class="filter_button" onclick="filter_selection('helmets')"> Helmet</button>
+			<button type="button" class="filter_button" onclick="filter_selection('nightvision')"> Night Vision</button>
 		</div>
 		<div id="all_items">
 			<p id="helmets_id">Helmets</p>

@@ -20,20 +20,22 @@
 			<label id="search_label" for="search_input">Search</label>
 			<input type="text" id="search_input" onkeyup="search_items()" placeholder="Search">
 		</form>
-		<div id="button_filter">
-			<button class="btn active" onclick="filter_selection('all')"> Show All</button>
-			<button class="btn" onclick="filter_selection('helmet')"> Helmet</button>
-			<button class="btn" onclick="filter_selection('nightvision')"> Night Vision</button>
+		<div id="filter_buttons">
+			<button type="button" class="filter_button active" onclick="filter_selection('all')"> Show All</button>
+			<button type="button" class="filter_button" onclick="filter_selection('helmet')"> Helmet</button>
+			<button type="button" class="filter_button" onclick="filter_selection('nightvision')"> Night Vision</button>
 		</div>
 		
 		<div id="all_items">
 			<p id="helmets_id">Helmets</p>
 			<ul id="helmets" aria-labelledby="helmets_id"></ul>
+			
 			<p id="helmet_accessories_id">Helmet Accessories</p>
 			<ul id="helmet_accessories" aria-labelledby="helmet_accessories_id">
 			<!-- <li><a href=".html"> <p class="tags"> </p></a></li> -->
-				<li><a href="helmet_night_vision_duty_use.html">Helmet Night Vision for Duty Use<p class="tags">all helmet accessory nightvision night vision duty use use</p></a></li>
+				<li><a href="helmet_night_vision_duty_use.html">Helmet Night Vision for Duty Use<p class="tags">all helmet accessory nightvision night vision duty use</p></a></li>
 			</ul>
+			
 			<p id="helmet_night_vision_id">Helmet Night Vision</p>
 			<ul id="helmet_night_vision monocular_night_vision binocular_night_vision mounting_night_vision thermal_night_vision active_aiming_night_vision" aria-labelledby="helmet_night_vision_id"></ul>
 		</div>
