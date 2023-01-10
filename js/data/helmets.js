@@ -9,6 +9,15 @@ items_array[items_array.length] = {
 	tags:'helmet helmets'
 };
 
+Element Explanations 
+item_category is the id of the unordered list is suppose to be. It should be the same for all items on this page.
+item_title is the name of the item. It is also used as the alternative text for its image.
+href is the link to the item.
+picture_href is the link of the picture.
+tags are keywords used for search and filter and are not displayed on the webpage. 
+	Search does not account for misspellings or variations of keyword order. 
+	The filter keyword phrase must be included here.
+
 **************/
 
 items_array[items_array.length] = {
